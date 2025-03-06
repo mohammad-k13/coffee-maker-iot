@@ -1,0 +1,106 @@
+@use '../abstracts/mixins' as *;
+.xr-textfield-wrapper {
+
+  --_font-size: var(--fs-sm);
+  border-radius: var(--el-border-radius);
+  display: grid;
+  align-items: center;
+  font-size: var(--_font-size);
+
+  &.small {
+    --_font-size: var(--fs-xs);
+  }
+
+  &.contained {
+    background-color: var(--card-bg-1);
+    box-shadow: var(--shadow-1);
+  }
+
+  &.filled {
+    border: 0.12em solid var(--input-filled-bg);
+    background-color: var(--input-filled-bg);
+
+    .xr-textfield {
+      &::placeholder {
+        color: var(--input-filled-placeholder);
+      }
+    }
+  }
+
+  &.outlined {
+    border: 0.12em solid var(--border-1);
+    &.primary{
+      
+      border: 0.12em solid var(--brand);
+    }
+  }
+  &:hover {
+    border-color: var(--border-1);
+  }
+
+  &:focus,
+  &:focus-within {
+    outline: none;
+    // outline-offset: 0.2em;
+    border-color: var(--brand);
+    box-shadow: var(--input-focused-shadow);
+    background-color: #fff;
+  }
+
+  .xr-textfield {
+    --_padding-inline: 0.75em;
+    --_padding-block: 1em;
+    --_transition: box-shadow 100ms ease, outline-offset 100ms ease,
+      padding 100ms ease;
+
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+
+
+
+    font-weight: 500;
+    padding: var(--_padding-block) var(--_padding-inline);
+    color: var(--text1);
+    font-size: var(--_font-size);
+    transition: var(--_transition);
+    background: transparent;
+    border: none;
+
+    &.underline {
+      padding-left: 0;
+      padding-right: 0;
+      border-bottom: 0.12em solid var(--border2);
+      border-radius: 0;
+    }
+
+    &.outlined {
+      border: 0.12em solid var(--border2);
+    }
+
+
+    &:focus {
+      outline: none;
+    }
+
+
+
+  }
+
+
+  @include breakpoint('small') {
+    --_font-size: var(--fs-md);
+
+    &.small {
+      --_font-size: var(--fs-sm);
+    }
+  }
+}
+
+
+.input-label {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}

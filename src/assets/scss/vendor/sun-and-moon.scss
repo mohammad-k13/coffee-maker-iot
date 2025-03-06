@@ -1,0 +1,127 @@
+.sun-and-moon {
+
+  &>.moon,
+  &>.sun,
+  &>.sun-beams {
+    transform-origin: center center;
+  }
+
+  &>.moon,
+  &>.sun {
+    // fill: var(--clr-heading);
+    fill: var(--text-1);
+
+    .theme-toggle:is(:hover, :focus-visible)>& {
+      fill: var(--text-1);
+    }
+  }
+
+  &>.sun-beams {
+    // stroke: customLighten(--main-bg-color, -32);
+    stroke-width: 2px;
+
+    // .theme-toggle:is(:hover, :focus-visible) & {
+    //   stroke: customLighten(--main-bg-color, -16);
+    // }
+  }
+
+  //   [data-theme="dark"] {
+  //   }
+
+  // @media (--motionOK) {
+  &>.sun {
+    transition: transform 0.5s var(--ease-elastic-3);
+  }
+
+  &>.sun-beams {
+    transition: transform 0.5s var(--ease-elastic-4), opacity 0.5s var(--ease-3);
+  }
+
+  & .moon>circle {
+    transition: transform 0.25s var(--ease-out-5);
+
+    @supports (cx: 1) {
+      transition: cx 0.25s var(--ease-out-5);
+    }
+  }
+
+  // }
+}
+
+.theme-toggle {
+  // --size: 2rem;
+  --icon-fill: var(--text-1);
+  --icon-fill-hover: var(--text-1);
+
+  // background: none;
+  // border: none;
+  padding: 0.68em;
+
+  inline-size: var(--size);
+  block-size: var(--size);
+  aspect-ratio: 1;
+  // border-radius: 50%;
+
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
+  outline-offset: 5px;
+
+  &>svg {
+    // inline-size: 100%;
+    // block-size: 100%;
+    inline-size: 63.45px;
+    block-size: 63.45px;
+    stroke-linecap: round;
+  }
+
+  @media (hover: none) {
+    --size: 48px;
+  }
+}
+
+@mixin darkToggleButton {
+  .sun-and-moon {
+    // & > .sun {
+    //   transform: scale(1.75);
+    // }
+
+    &>.sun-beams {
+      opacity: 0;
+    }
+
+    &>.moon>circle {
+      transform: translateX(-7px);
+
+      @supports (cx: 1) {
+        transform: translateX(0);
+        cx: 17;
+      }
+    }
+
+    &>.sun {
+      transform: scale(1.75);
+      transition-timing-function: var(--ease-3);
+      transition-duration: 0.25s;
+    }
+
+    &>.sun-beams {
+      transform: rotateZ(-25deg);
+      transition-duration: 0.15s;
+    }
+
+    &>.moon>circle {
+      transition-delay: 0.25s;
+      transition-duration: 0.5s;
+    }
+  }
+}
+
+// @media (prefers-color-scheme: dark) {
+//   @include darkToggleButton;
+
+// }
+[data-theme="light"] {
+  @include darkToggleButton;
+}

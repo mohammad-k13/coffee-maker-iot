@@ -1,0 +1,228 @@
+@use '../abstracts/mixins' as *;
+
+.xr-button {
+  --_padding-inline: 1.25em;
+  --_padding-block: 1em;
+  // --_transition: box-shadow 100ms ease, outline-offset 100ms ease, padding 100ms ease, transform 20ms ease-out;
+  --_transition: all 100ms ease-out;
+
+  //   border-radius: calc(var(--el-border-radius) * 16px);
+  border-radius: var(--el-border-radius);
+  cursor: pointer;
+  touch-action: manipulation;
+  background: transparent;
+  border: 0.16em solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+  padding: var(--_padding-block) var(--_padding-inline);
+  user-select: none;
+  // color: var(--text1);
+  font-size: var(--fs-sm);
+  transition: var(--_transition);
+  // transform: scale(1);
+
+
+  &:hover {
+    background-color: var(--button-bg-hover);
+    // transform: scale(1.2);
+  }
+
+
+  &.outlined {
+    border: 0.2em solid #fff;
+
+    &.primary {
+      border-color: var(--brand);
+    }
+
+    &.success {
+      border-color: var(--success);
+      color: var(--success)
+    }
+  }
+
+  &.outlined-2 {
+    border: 0.12em solid #727272;
+    color: #808080;
+
+    &.primary {
+      border-color: var(--brand);
+    }
+
+    &.success {
+      border-color: var(--success);
+      color: var(--success)
+    }
+  }
+
+  &.contained {
+    background-color: var(--text-3);
+    color: var(--button-contained-text);
+
+    &:hover {
+      background-color: var(--button-contained-bg-hover);
+      // color: var(--surface1);
+    }
+
+    &.normal {
+      background-color: hsla(0, 0%, 66%, 1);
+
+      &:hover {
+        background-color: hsla(0, 0%, 60%, 1);
+      }
+    }
+
+    &.secondary {
+      background-color: hsla(213, 10%, 18%, 1);
+
+      &:hover {
+        background-color: hsla(213, 10%, 12%, 1);
+      }
+    }
+
+    &.primary {
+      background-color: var(--button-contained-bg);
+
+      &:hover {
+        background-color: var(--button-contained-bg-hover);
+        // color: var(--surface1);
+      }
+    }
+
+    &.error-2 {
+      background-color: hsla(0, 100%, 50%, 1);
+
+      &:hover {
+        background-color: hsla(0, 100%, 45%, 1);
+      }
+    }
+  }
+
+  &.filled {
+    background-color: var(--button-filled-bg);
+
+    &:hover {
+      // background-color: var(--button-filled-bg-hover);
+    }
+
+    &.primary {
+      background-color: hsla(var(--brand-hue), calc(var(--brand-saturation) / 2), calc(var(--brand-lightness) * 3), 0.16);
+      border-color: var(--brand);
+    }
+  }
+
+  &:not(:active) {
+    &:focus-visible {
+      outline-offset: 0.2em;
+    }
+  }
+
+  &:active {
+    // box-shadow: var(--shadow-1);
+    transform: scale(0.97);
+  }
+
+  &:focus {
+    // transform: scale(1);
+    // background-color: var(--button-bg-hover);
+    // color: #fff;
+  }
+
+  &.small {
+
+    --_padding-inline: 0.75em;
+    --_padding-block: 0.8em;
+    font-size: var(--fs-xs);
+  }
+
+  &.large {
+
+    --_padding-inline: 0.5em;
+    --_padding-block: 1em;
+    font-size: var(--fs-md);
+  }
+
+  &.icon {
+    --_padding-inline: 0.4em;
+    --_padding-block: 0.4em;
+    --_icon-size: 2.75em;
+    width: var(--_icon-size);
+    height: var(--_icon-size);
+
+    &.circle {
+      border-radius: 50%;
+    }
+
+    &.small {
+      --_padding-inline: 0.2em;
+      --_padding-block: 0.2em;
+    }
+
+    &.large {
+      --_icon-size: 3.5em;
+    }
+  }
+
+  &.dark {
+    --button-contained-bg: hsla(0, 0%, 97%, 1);
+    --button-contained-text: var(--brand);
+    --button-contained-bg-hover: hsla(0, 0%, 85%, 1)
+  }
+
+  &.error {
+    --button-contained-bg: hsla(0, 100%, 91%, 1);
+    --button-contained-text: hsla(0, 100%, 50%, 1);
+    --button-contained-bg-hover: hsla(0, 100%, 85%, 1)
+  }
+
+  @include breakpoint('small') {
+    font-size: var(--fs-md);
+
+    &.small {
+      font-size: var(--fs-sm);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+}
+
+.xr-button-spinner {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  animation: spin 0.8s linear infinite;
+  position: absolute;
+  left: 0.5em;
+
+  border: 0.16em solid rgba(255, 255, 255, 0.24);
+  border-top-color: #fff;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+[data-theme="light"] {
+  .xr-button {
+    // &:hover {
+    //   background-color: var(--button-bg-hover);
+    //   // transform: scale(1.2);
+    // }
+
+
+    &.outlined {
+      border: 0.2em solid #000;
+    }
+  }
+}

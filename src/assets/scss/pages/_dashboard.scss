@@ -1,0 +1,354 @@
+@use "../abstracts/mixins" as *;
+
+
+.gahve-saz-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    right: 0;
+    z-index: 16;
+    background-color: rgb(12, 12, 12);
+}
+
+
+.menu-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    z-index: 12;
+    // background: #fff;
+    // backdrop-filter: blur(16px) saturate(180%);
+    // -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(22, 22, 22);
+    // border-radius: 12px;
+    // border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.menu-btn-path {
+    stroke: var(--text-1)
+}
+
+.menu-btn {
+
+    &:focus,
+    &:hover {
+        background-color: transparent;
+        color: inherit;
+        box-shadow: none;
+    }
+}
+
+.menu-option-btn {
+    height: 11em;
+}
+
+
+// [data-theme="dark"]{
+
+// }
+
+
+
+
+
+
+
+.dashboard-wrapper {
+    grid-template-columns: 150px 1fr;
+    min-height: 100vh;
+
+    @include breakpoint('small') {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-navigation {
+    background-color: var(--card-bg-1);
+    border-left: 2px solid hsla(0, 0%, 93%, 0.51);
+    position: sticky;
+    top: 0;
+    bottom: 0;
+
+    .nav-item {
+        button {
+            --_padding-inline: 0.75em;
+            color: var(--text-2);
+        }
+
+        .nav-item-indicator {
+            position: absolute;
+            left: 0;
+            top: 1.75em;
+            bottom: 1.75em;
+            width: 0.35em;
+            border-top-right-radius: 0.5em;
+            border-bottom-right-radius: 0.5em;
+            background-color: transparent;
+        }
+
+        &.active {
+            button {
+                color: var(--brand);
+                font-weight: 700;
+            }
+
+            .nav-item-indicator {
+                background-color: var(--brand);
+            }
+        }
+    }
+}
+
+.drawer-nav {
+    button {
+        --_padding-inline: 0.25em;
+        --_padding-block: 0.75em;
+        color: var(--text-2);
+    }
+
+    &.active {
+        button {
+            color: var(--brand);
+            font-weight: 700;
+        }
+
+
+    }
+}
+
+.main-header {
+    background-color: var(--brand);
+    color: #fff;
+}
+
+.dashboard-content-wrapper {
+
+    @include breakpoint('small') {
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+.main-drawer-modal {
+    justify-content: flex-start !important;
+
+    .xr-modal-paper {
+        max-width: 20em;
+        margin: 0;
+        border-radius: 0;
+        height: 100%;
+    }
+}
+
+.circle-dot {
+    --dot-size: 1em;
+    border-radius: 50%;
+    width: var(--dot-size);
+    height: var(--dot-size);
+
+    &.small {
+        --dot-size: 0.7em
+    }
+}
+
+.clickable-card-indicator {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2.5em;
+    width: 0.25em;
+    border-top-left-radius: 5.5em;
+    border-bottom-left-radius: 5.5em;
+    background-color: var(--brand);
+}
+
+.liveSectionFullScreen {
+    grid-template-columns: 20em 1fr;
+
+    @include breakpoint('medium') {
+        grid-template-columns: 10em 1fr;
+    }
+
+    @include breakpoint('small') {
+        grid-template-columns: 1fr;
+    }
+}
+
+.liveSectionChip {
+    font-size: var(--fs-xs);
+    background-color: hsla(0, 0%, 52%, 0.27);
+    color: #fff;
+
+    &.small {}
+}
+
+.trafic-info-modal-profile {
+    grid-template-columns: auto 1fr 1fr;
+
+    @include breakpoint('small') {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.pelak-select {
+    .xr__indicators {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .xr__value-container {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    &.hasValue {
+        .xr__value-container {
+            position: static;
+        }
+
+        .xr__single-value {
+            position: absolute;
+            text-align: center;
+            right: 0;
+            left: 0;
+        }
+
+        .xr__indicators {
+            display: none;
+        }
+    }
+
+    .xr__menu-portal {
+        width: 7em;
+    }
+}
+
+.JDatePicker {
+    box-shadow: var(--shadow-1);
+    border-radius: var(--el-border-radius) !important;
+}
+
+
+
+
+
+.drop-container {
+    // position: relative;
+    // display: flex;
+    // gap: 10px;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // height: 100px;
+    // padding: 20px;
+    // border-radius: 10px;
+    // margin-bottom: 0.5em;
+    // border: 2px dashed #bcbcbc;
+    // color: #444;
+    // cursor: pointer;
+    // transition: background .2s ease-in-out, border .2s ease-in-out;
+
+    // input[type=file]::file-selector-button {
+    //     margin-right: 20px;
+    //     border: none;
+    //     background: #084cdf;
+    //     padding: 10px 20px;
+    //     border-radius: 10px;
+    //     color: #fff;
+    //     cursor: pointer;
+    //     transition: background .2s ease-in-out;
+    //     display: none;
+    // }
+
+    // input[type=file]::file-selector-button:hover {
+    //     background: #0d45a5;
+    // }
+    input[type=file] {
+        display: none;
+    }
+}
+
+.date-picker-select {
+    input {
+
+        &::placeholder {
+            color: var(--brand);
+        }
+    }
+
+    .xr-textfield-endIcon {
+        padding-right: 0.24em;
+        border-right: 0.12em solid var(--brand);
+    }
+}
+
+[dir='ltr'] {
+
+    .date-picker-select {
+        .xr-textfield-endIcon {
+            padding-right: 0;
+            padding-left: 0.24em;
+            border-left: 0.12em solid var(--brand);
+            border-right: 0;
+        }
+    }
+}
+
+// .drop-container:hover {
+//     background: #eee;
+//     border-color: #111;
+// }
+
+// .drop-container:hover .drop-title {
+//     color: #222;
+// }
+
+// .drop-title {
+//     color: #444;
+//     font-size: 20px;
+//     font-weight: bold;
+//     text-align: center;
+//     transition: color .2s ease-in-out;
+// }
+
+
+
+
+
+
+
+
+
+
+.gauge-chart {
+    width: 100px;
+    height: 10px;
+    border-radius: 50px 50px 0 0;
+    /* This creates a half-circle (arc) */
+    background-color: #5ce3c5;
+    /* Set the background color */
+    border: 2px solid #000;
+    /* Outline of the div */
+    border-bottom: none;
+    /* Remove the bottom border to emphasize the arc */
+}
+
+
+
+[data-theme="light"] {
+    .menu-bg, .gahve-saz-header {
+        background-color: rgb(242, 242, 242);
+    }
+}

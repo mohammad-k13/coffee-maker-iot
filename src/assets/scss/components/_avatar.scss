@@ -1,0 +1,46 @@
+@use '../abstracts/mixins' as *;
+.xr-avatar {
+    --avatar-size: 2.75em;
+    --avatar-padding: 0.4em;
+    --avatar-filled: hsla(0, 0%, 64%, 1);
+    // --avatar-height: 2em;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    background-color: var(--border-1-light);
+    color: var(--brand);
+    padding: var(--avatar-padding);
+    font-size: var(--fs-sm);
+    border-radius: var(--el-border-radius);
+    overflow: hidden;
+
+    img {
+        object-fit: cover;
+    }
+
+    &.circle {
+        border-radius: 50%;
+    }
+
+    &.xsmall {
+        --avatar-size: 1.75em;
+    }
+
+    &.large {
+        --avatar-size: 4em;
+    }
+
+    &.xlarge {
+        --avatar-size: 4.5em;
+    }
+
+
+
+    &.filled {
+        background-color: var(--avatar-filled);
+    }
+
+    
+  @include breakpoint('small'){
+    font-size: var(--fs-md);
+  }
+}

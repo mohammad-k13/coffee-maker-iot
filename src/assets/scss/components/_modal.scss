@@ -1,0 +1,67 @@
+@use "../abstracts/mixins" as *;
+
+.xr-modal-wrapper {
+    position: fixed;
+    z-index: 1300;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    
+    &.center{
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    @include breakpoint('small'){
+        &.bottom-sm{
+            align-items: end;
+            justify-content: center;
+            top: 4em
+        }
+    }
+    &.MuiModal-hidden {
+        visibility: hidden;
+    }
+
+
+    .xr-modal-paper {
+        // background-color: var(--card-bg-1);
+        background-color: var(--button-filled-bg);
+        border-radius: 0.5em;
+        //   padding: 1em;
+        width: 100%;
+        max-width: 35em;
+        margin: 0 1em;
+        box-shadow: var(--shadow-1);
+        outline: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-size: var(--fs-sm);
+        will-change: transform opacity height;
+        max-height: 98%;
+        overflow-y: auto;
+    }
+    &.main-drawer-modal{
+        .xr-modal-paper{
+            max-height: 100%;
+        }
+    }
+}
+
+.xr-modal-backdrop {
+
+    z-index: -1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: hsla(0, 0%, 55%, 0.27);
+    backdrop-filter: blur(3px);
+    -webkit-tap-highlight-color: transparent;
+}

@@ -1,0 +1,57 @@
+.tippy-box {
+  border: 1px transparent;
+}
+.tippy-box[data-placement^='top'] > .tippy-arrow:after {
+  border-top-color: inherit;
+  border-width: 0.500em 0.500em 0;
+  bottom: -0.500em;
+  left: 0;
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow:after {
+  border-bottom-color: inherit;
+  border-width: 0 0.500em 0.500em;
+  top: -0.500em;
+  left: 0;
+}
+.tippy-box[data-placement^='left'] > .tippy-arrow:after {
+  border-left-color: inherit;
+  border-width: 0.500em 0 0.500em 0.500em;
+  right: -0.500em;
+  top: 0;
+}
+.tippy-box[data-placement^='right'] > .tippy-arrow:after {
+  border-width: 0.500em 0.500em 0.500em 0;
+  left: -0.500em;
+  top: 0;
+  border-right-color: inherit;
+}
+.tippy-box[data-placement^='top']
+  > .tippy-svg-arrow
+  > svg:first-child:not(:last-child) {
+  top: 1.063em;
+}
+.tippy-box[data-placement^='bottom']
+  > .tippy-svg-arrow
+  > svg:first-child:not(:last-child) {
+  bottom: 1.063em;
+}
+.tippy-box[data-placement^='left']
+  > .tippy-svg-arrow
+  > svg:first-child:not(:last-child) {
+  left: 0.750em;
+}
+.tippy-box[data-placement^='right']
+  > .tippy-svg-arrow
+  > svg:first-child:not(:last-child) {
+  right: 0.750em;
+}
+.tippy-arrow {
+  border-color: inherit;
+}
+.tippy-arrow:after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  border-color: transparent;
+  border-style: solid;
+}

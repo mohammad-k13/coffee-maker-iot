@@ -1,0 +1,1008 @@
+@use "../abstracts/mixins" as *;
+
+$dividedCount: 4;
+
+.uppercaseText {
+  @include css3-prefix(text-transform, uppercase);
+}
+
+.inheritColor {
+  color: inherit !important;
+}
+
+.inheritOverflow {
+  @include css3-prefix(text-transform, inherit);
+}
+
+.overflowHide {
+  @include css3-prefix(overflow, hidden);
+}
+
+.overflowXHide {
+  @include css3-prefix(overflow-x, hidden);
+}
+
+.overflowXAuto {
+  @include css3-prefix(overflow-x, auto);
+}
+
+.overflowVisible {
+  @include css3-prefix(overflow, visible);
+}
+
+.overflowYAuto {
+  overflow-y: auto;
+}
+
+.overflowYHide {
+  overflow-y: hidden;
+}
+
+.transition-transform-150-easeout {
+  transition: transform 150ms ease-out;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.forceLtr {
+  direction: ltr;
+}
+
+.fontEn {
+  font-family: Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif !important;
+}
+
+.fs-xxl {
+  font-size: var(--fs-xxl);
+}
+
+.fs-xl {
+  font-size: var(--fs-xl);
+}
+
+.fs-lg {
+  font-size: var(--fs-lg);
+}
+
+.fs-md {
+  font-size: var(--fs-md);
+}
+
+.fs-sm {
+  font-size: var(--fs-sm);
+}
+
+.fs-xs {
+  font-size: var(--fs-xs);
+}
+
+.fs-xxs {
+  font-size: var(--fs-xxs);
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-w-800 {
+  font-weight: 800;
+}
+.font-w-700 {
+  font-weight: 700;
+}
+
+.font-w-600 {
+  font-weight: 600;
+}
+
+.font-w-400 {
+  font-weight: 400;
+}
+
+.bg-card-1 {
+  background-color: var(--card-bg-1);
+}
+
+.bg-card-2 {
+  background-color: var(--card-bg-2);
+}
+
+.bg-card-3 {
+  background-color: var(--card-bg-3);
+}
+
+.bg-filled-input {
+  background-color: var(--input-filled-bg);
+}
+
+.bg-text {
+  background-color: var(--text-1);
+}
+
+.shadow-1 {
+  box-shadow: var(--shadow-1);
+}
+
+.shadow-2 {
+  box-shadow: var(--shadow-2);
+}
+
+.textSecondary {
+  color: var(--text-2);
+}
+
+.textSecondary3 {
+  color: var(--text-3);
+}
+
+.lineHeight1 {
+  line-height: 1;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.minWidthFitContent {
+  min-width: fit-content;
+}
+
+.b {
+  &.b1 {
+    border: 0.08em solid var(--border-1);
+  }
+
+  &.bt1 {
+    border-top: 0.08em solid var(--border-1);
+  }
+
+  &.bb1 {
+    border-bottom: 0.08em solid var(--border-1);
+  }
+
+
+
+  &.b2 {
+    border: 0.08em solid var(--border-2);
+  }
+
+  &.bt2 {
+    border-top: 0.08em solid var(--border-2);
+  }
+
+  &.bb2 {
+    border-bottom: 0.08em solid var(--border-2);
+  }
+
+}
+
+.secondary-color {
+  color: var(--secondary);
+}
+
+.brand-color {
+  color: var(--brand);
+}
+
+.errorColor {
+  color: var(--error);
+}
+.successColor {
+  color: var(--success);
+}
+
+.text-color {
+  color: var(--text-1)
+}
+
+.brand-bg {
+  background-color: var(--brand);
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.listStyleNone {
+  list-style: none;
+}
+
+
+
+
+
+//size
+.h100 {
+  height: 100%;
+}
+
+.hUnset {
+  height: unset;
+}
+
+.w100 {
+  width: 100%;
+}
+
+@for $i from 1 through 48 {
+  .width-#{$i} {
+    width: #{$i / 2}em;
+  }
+}
+
+.wAuto {
+  width: auto;
+}
+
+.mW100 {
+  max-width: 100%;
+}
+
+.mH100 {
+  max-height: 100%;
+}
+
+@for $i from 1 through 24 {
+  .gap-#{$i} {
+    gap: #{$i / $dividedCount}em;
+  }
+}
+
+@for $i from 1 through 24 {
+  .gap-y-#{$i} {
+    gap: #{$i / $dividedCount}em 0;
+  }
+}
+
+@for $i from 1 through 24 {
+  .gap-x-#{$i} {
+    gap: 0 #{$i / $dividedCount}em;
+  }
+}
+
+@for $i from 0 through 24 {
+  .m#{$i} {
+    margin: #{$i / $dividedCount}em;
+  }
+}
+
+@for $i from 0 through 24 {
+  .mt#{$i} {
+    margin-top: #{$i / $dividedCount}em;
+  }
+}
+
+
+.mrAuto {
+  margin-right: auto;
+}
+
+@for $i from 0 through 24 {
+  .mb#{$i} {
+    margin-bottom: #{$i / $dividedCount}em;
+  }
+}
+
+
+.mlAuto {
+  margin-left: auto;
+}
+
+@for $i from 0 through 24 {
+  .mx#{$i} {
+    margin-right: #{$i / $dividedCount}em;
+    margin-left: #{$i / $dividedCount}em;
+  }
+}
+
+@for $i from 0 through 24 {
+  .my#{$i} {
+    margin-top: #{$i / $dividedCount}em;
+    margin-bottom: #{$i / $dividedCount}em;
+  }
+}
+
+// PADDING
+@for $i from 0 through 24 {
+  .p#{$i} {
+    padding: #{$i / $dividedCount}em;
+  }
+}
+
+@for $i from 0 through 24 {
+  .py#{$i} {
+    padding-top: #{$i / $dividedCount}em;
+    padding-bottom: #{$i / $dividedCount}em;
+  }
+}
+
+@for $i from 0 through 24 {
+  .px#{$i} {
+    padding-left: #{$i / $dividedCount}em;
+    padding-right: #{$i / $dividedCount}em;
+  }
+}
+
+@for $i from 0 through 24 {
+  .pt#{$i} {
+    padding-top: #{$i / $dividedCount}em;
+  }
+}
+
+
+@for $i from 0 through 24 {
+  .pb#{$i} {
+    padding-bottom: #{$i / $dividedCount}em;
+  }
+}
+
+
+@for $i from 0 through 16 {
+  .radius-#{$i} {
+    border-radius: #{$i}em;
+  }
+}
+
+@for $i from 1 through 6 {
+  .max#{$i}LineText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $i;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+}
+
+.radius-50 {
+  border-radius: 50%;
+}
+
+.noWrapText {
+  white-space: nowrap;
+}
+
+.ellipsisText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.alignCenter {
+  @include css3-prefix(align-items, center);
+}
+
+.alignStart {
+  @include css3-prefix(align-items, flex-start);
+}
+
+.alignEnd {
+  @include css3-prefix(align-items, flex-end);
+}
+
+.alignBase {
+  @include css3-prefix(align-items, baseline);
+}
+
+.justifyCenter {
+  @include css3-prefix(justify-content, center);
+}
+
+.justifyStart {
+  @include css3-prefix(justify-content, flex-start);
+}
+
+.justifyEnd {
+  @include css3-prefix(justify-content, flex-end);
+}
+
+.justifyBetween {
+  @include css3-prefix(justify-content, space-between);
+}
+
+.column {
+  @include css3-prefix(flex-direction, column);
+}
+
+.columnReverse {
+  @include css3-prefix(flex-direction, column-reverse);
+}
+
+.flexOne {
+  @include css3-prefix(flex, 1 1 0);
+}
+
+.flexTwo {
+  @include css3-prefix(flex, 2);
+}
+
+.wrap {
+  @include css3-prefix(flex-wrap, wrap);
+}
+
+.rowReverse {
+  @include css3-prefix(flex-direction, row-reverse);
+}
+
+.alignSelfEnd {
+  @include css3-prefix(align-self, flex-end);
+}
+
+.alignSelfStart {
+  @include css3-prefix(align-self, flex-start);
+}
+
+.alignSelfCenter {
+  @include css3-prefix(align-self, center);
+}
+
+//grid css
+.grid {
+  display: -ms-grid;
+  display: -moz-grid;
+  display: grid;
+
+  @for $i from 0 through 50 {
+    &.col#{$i} {
+      grid-template-columns: repeat($i, 1fr);
+    }
+
+    .span-#{$i} {
+      grid-column: span $i;
+    }
+  }
+
+  &.placeCenter {
+    @include css3-prefix(place-items, center);
+  }
+}
+
+.textAlign {
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+}
+
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.dNone {
+  display: none;
+}
+
+// Loop through the size map and generate styles
+@each $size,
+$breakpoint in $size-map {
+  @include generate-styles($size, $breakpoint) {
+
+    .fs-xxl-#{$size} {
+      font-size: var(--fs-xxl);
+    }
+
+    .fs-xl-#{$size} {
+      font-size: var(--fs-xl);
+    }
+
+    .fs-lg-#{$size} {
+      font-size: var(--fs-lg);
+    }
+
+    .fs-md-#{$size} {
+      font-size: var(--fs-md);
+    }
+
+    .fs-sm-#{$size} {
+      font-size: var(--fs-sm);
+    }
+
+    .fs-xs-#{$size} {
+      font-size: var(--fs-xs);
+    }
+
+    .fs-xxs-#{$size} {
+      font-size: var(--fs-xxs);
+    }
+
+    .dNone-#{$size} {
+      display: none;
+    }
+
+    //size
+    .h100-#{$size} {
+      height: 100%;
+    }
+
+    .hUnset-#{$size} {
+      height: unset;
+    }
+
+    .w100-#{$size} {
+      width: 100%;
+    }
+
+    @for $i from 1 through 48 {
+      .width-#{$i}-#{$size} {
+        width: #{$i / 2}em;
+      }
+    }
+
+    .wAuto-#{$size} {
+      width: auto;
+    }
+
+    .mW100-#{$size} {
+      max-width: 100%;
+    }
+
+    .mH100-#{$size} {
+      max-height: 100%;
+    }
+
+    @for $i from 1 through 24 {
+      .gap-#{$i}-#{$size} {
+        gap: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 1 through 24 {
+      .gap-y-#{$i}-#{$size} {
+        gap: #{$i / $dividedCount}em 0;
+      }
+    }
+
+    @for $i from 1 through 24 {
+      .gap-x-#{$i}-#{$size} {
+        gap: 0 #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .m#{$i}-#{$size} {
+        margin: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .mt#{$i}-#{$size} {
+        margin-top: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .mr#{$i}-#{$size} {
+        margin-right: #{$i / $dividedCount}em;
+      }
+    }
+
+    .mrAuto-#{$size} {
+      margin-right: auto;
+    }
+
+    @for $i from 0 through 24 {
+      .mb#{$i}-#{$size} {
+        margin-bottom: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .ml#{$i}-#{$size} {
+        margin-left: #{$i / $dividedCount}em;
+      }
+    }
+
+    .mlAuto-#{$size} {
+      margin-left: auto;
+    }
+
+    @for $i from 0 through 24 {
+      .mx#{$i}-#{$size} {
+        margin-right: #{$i / $dividedCount}em;
+        margin-left: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .my#{$i}-#{$size} {
+        margin-top: #{$i / $dividedCount}em;
+        margin-bottom: #{$i / $dividedCount}em;
+      }
+    }
+
+    // PADDING
+    @for $i from 0 through 24 {
+      .p#{$i}-#{$size} {
+        padding: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .py#{$i}-#{$size} {
+        padding-top: #{$i / $dividedCount}em;
+        padding-bottom: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .px#{$i}-#{$size} {
+        padding-left: #{$i / $dividedCount}em;
+        padding-right: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .pt#{$i}-#{$size} {
+        padding-top: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .pr#{$i}-#{$size} {
+        padding-right: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .pb#{$i}-#{$size} {
+        padding-bottom: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 24 {
+      .pl#{$i}-#{$size} {
+        padding-left: #{$i / $dividedCount}em;
+      }
+    }
+
+    @for $i from 0 through 16 {
+      .radius-#{$i}-#{$size} {
+        border-radius: #{$i}em;
+      }
+    }
+
+    @for $i from 1 through 6 {
+      .max#{$i}LineText-#{$size} {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: $i;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    .radius-50-#{$size} {
+      border-radius: 50%;
+    }
+
+    .noWrapText-#{$size} {
+      white-space: nowrap;
+    }
+
+    .ellipsisText-#{$size} {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .flex-#{$size} {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    .alignCenter-#{$size} {
+      @include css3-prefix(align-items, center);
+    }
+
+    .alignStart-#{$size} {
+      @include css3-prefix(align-items, flex-start);
+    }
+
+    .alignEnd-#{$size} {
+      @include css3-prefix(align-items, flex-end);
+    }
+
+    .alignBase-#{$size} {
+      @include css3-prefix(align-items, baseline);
+    }
+
+    .justifyCenter-#{$size} {
+      @include css3-prefix(justify-content, center);
+    }
+
+    .justifyStart-#{$size} {
+      @include css3-prefix(justify-content, flex-start);
+    }
+
+    .justifyEnd-#{$size} {
+      @include css3-prefix(justify-content, flex-end);
+    }
+
+    .justifyBetween-#{$size} {
+      @include css3-prefix(justify-content, space-between);
+    }
+
+    .column-#{$size} {
+      @include css3-prefix(flex-direction, column);
+    }
+
+    .columnReverse-#{$size} {
+      @include css3-prefix(flex-direction, column-reverse);
+    }
+
+    .flexOne-#{$size} {
+      @include css3-prefix(flex, 1 1 0);
+    }
+
+    .flexTwo-#{$size} {
+      @include css3-prefix(flex, 2);
+    }
+
+    .wrap-#{$size} {
+      @include css3-prefix(flex-wrap, wrap);
+    }
+
+    .rowReverse-#{$size} {
+      @include css3-prefix(flex-direction, row-reverse);
+    }
+
+    .alignSelfEnd-#{$size} {
+      @include css3-prefix(align-self, flex-end);
+    }
+
+    .alignSelfStart-#{$size} {
+      @include css3-prefix(align-self, flex-start);
+    }
+
+    .alignSelfCenter-#{$size} {
+      @include css3-prefix(align-self, center);
+    }
+
+    //grid css
+    .grid {
+      @for $i from 1 through 50 {
+        &.col#{$i}-#{$size} {
+          grid-template-columns: repeat($i, 1fr);
+        }
+
+        .span-#{$i}-#{$size} {
+          grid-column: span $i;
+        }
+      }
+
+      &.placeCenter-#{$size} {
+        @include css3-prefix(place-items, center);
+      }
+    }
+
+    .textAlign {
+      &.left-#{$size} {
+        text-align: left;
+      }
+
+      &.center-#{$size} {
+        text-align: center;
+      }
+
+      &.right-#{$size} {
+        text-align: right;
+      }
+    }
+
+
+    .relative-#{$size} {
+      position: relative;
+    }
+
+    .absolute-#{$size} {
+      position: absolute;
+    }
+
+    .fixed-#{$size} {
+      position: fixed;
+    }
+
+    .inset-0-#{$size} {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+
+
+
+
+// for rtl
+[dir='rtl'] {
+  .b {
+    &.br1 {
+      border-right: 0.08em solid var(--border-1);
+    }
+
+    &.br2 {
+      border-right: 0.08em solid var(--border-2);
+    }
+  }
+
+
+  @for $i from 0 through 24 {
+    .mr#{$i} {
+      margin-right: #{$i / $dividedCount}em;
+    }
+  }
+
+
+  @for $i from 0 through 24 {
+    .ml#{$i} {
+      margin-left: #{$i / $dividedCount}em;
+    }
+  }
+
+
+
+  @for $i from 0 through 24 {
+    .pr#{$i} {
+      padding-right: #{$i / $dividedCount}em;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .pl#{$i} {
+      padding-left: #{$i / $dividedCount}em;
+    }
+  }
+
+
+
+  // Loop through the size map and generate styles
+  @each $size,
+  $breakpoint in $size-map {
+    @include generate-styles($size, $breakpoint) {
+    
+      @for $i from 0 through 24 {
+        .mr#{$i}-#{$size} {
+          margin-right: #{$i / $dividedCount}em;
+        }
+      }
+    
+    
+      @for $i from 0 through 24 {
+        .ml#{$i}-#{$size} {
+          margin-left: #{$i / $dividedCount}em;
+        }
+      }
+    
+    
+      @for $i from 0 through 24 {
+        .pr#{$i}-#{$size} {
+          padding-right: #{$i / $dividedCount}em;
+        }
+      }
+    
+      @for $i from 0 through 24 {
+        .pl#{$i}-#{$size} {
+          padding-left: #{$i / $dividedCount}em;
+        }
+      }
+    }
+  }
+}
+
+
+
+// for ltr
+[dir='ltr'] {
+  font-family: system-ui;
+  .xr-button-spinner {
+    left: auto;
+    right: 0.5em;
+  }
+  .b {
+    &.br1 {
+      border-left: 0.08em solid var(--border-1);
+    }
+
+    &.br2 {
+      border-left: 0.08em solid var(--border-2);
+    }
+  }
+
+
+  @for $i from 0 through 24 {
+    .mr#{$i} {
+      margin-left: #{$i / $dividedCount}em;
+    }
+  }
+
+
+  @for $i from 0 through 24 {
+    .ml#{$i} {
+      margin-right: #{$i / $dividedCount}em;
+    }
+  }
+
+
+
+  @for $i from 0 through 24 {
+    .pr#{$i} {
+      padding-left: #{$i / $dividedCount}em;
+    }
+  }
+
+  @for $i from 0 through 24 {
+    .pl#{$i} {
+      padding-right: #{$i / $dividedCount}em;
+    }
+  }
+
+
+
+  // Loop through the size map and generate styles
+  @each $size,
+  $breakpoint in $size-map {
+    @include generate-styles($size, $breakpoint) {
+    
+      @for $i from 0 through 24 {
+        .mr#{$i}-#{$size} {
+          margin-left: #{$i / $dividedCount}em;
+        }
+      }
+    
+    
+      @for $i from 0 through 24 {
+        .ml#{$i}-#{$size} {
+          margin-right: #{$i / $dividedCount}em;
+        }
+      }
+    
+    
+      @for $i from 0 through 24 {
+        .pr#{$i}-#{$size} {
+          padding-left: #{$i / $dividedCount}em;
+        }
+      }
+    
+      @for $i from 0 through 24 {
+        .pl#{$i}-#{$size} {
+          padding-right: #{$i / $dividedCount}em;
+        }
+      }
+    }
+  }
+}

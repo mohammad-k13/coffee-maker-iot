@@ -1,0 +1,80 @@
+:root {
+  --rmdp-primary-green: #000957;
+  --rmdp-secondary-green: #000957;
+  --rmdp-shadow-green: #000957;
+  --rmdp-today-green: #000957;
+  --rmdp-hover-green: #000957;
+  --rmdp-deselect-green: hsl(234, 100%, 17%);
+}
+
+.primaryColorDatePicker .rmdp-wrapper {
+  border: 1px solid var(--rmdp-secondary-green);
+  box-shadow: 0 0 5px var(--rmdp-secondary-green);
+}
+
+.primaryColorDatePicker .rmdp-panel-body li {
+  background-color: var(--rmdp-primary-green);
+  box-shadow: 0 0 2px var(--rmdp-secondary-green);
+}
+
+.primaryColorDatePicker .rmdp-week-day {
+  color: var(--rmdp-primary-green);
+}
+
+.primaryColorDatePicker .rmdp-day.rmdp-deactive {
+  color: var(--rmdp-secondary-green);
+}
+
+.primaryColorDatePicker .rmdp-range {
+  background-color: var(--rmdp-primary-green);
+  box-shadow: 0 0 3px var(--rmdp-shadow-green);
+}
+
+.primaryColorDatePicker .rmdp-arrow {
+  border: solid var(--rmdp-primary-green);
+  border-width: 0 2px 2px 0;
+}
+
+.primaryColorDatePicker .rmdp-arrow-container:hover {
+  background-color: var(--rmdp-primary-green);
+  box-shadow: 0 0 3px var(--rmdp-secondary-green);
+}
+
+.primaryColorDatePicker .rmdp-panel-body::-webkit-scrollbar-thumb {
+  background: var(--rmdp-primary-green);
+}
+
+.primaryColorDatePicker .rmdp-day.rmdp-today span {
+  background-color: var(--rmdp-today-green);
+}
+
+.primaryColorDatePicker .rmdp-rtl .rmdp-panel {
+  border-left: unset;
+  border-right: 1px solid var(--rmdp-secondary-green);
+}
+
+.primaryColorDatePicker .rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: var(--rmdp-primary-green);
+  box-shadow: 0 0 3px var(--rmdp-shadow-green);
+}
+
+.primaryColorDatePicker .rmdp-day:not(.rmdp-day-hidden) span:hover {
+  background-color: var(--rmdp-hover-green) !important;
+}
+
+.primaryColorDatePicker .b-deselect {
+  color: var(--rmdp-deselect-green);
+  background-color: white;
+}
+
+.primaryColorDatePicker .rmdp-action-button {
+  color: var(--rmdp-primary-green);
+}
+
+.primaryColorDatePicker .rmdp-button:not(.rmdp-action-button) {
+  background-color: var(--rmdp-primary-green);
+}
+
+.primaryColorDatePicker .rmdp-button:not(.rmdp-action-button):hover {
+  background-color: var(--rmdp-deselect-green);
+}

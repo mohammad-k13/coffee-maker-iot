@@ -1,0 +1,75 @@
+.tippy-box[data-animation='fade'][data-state='hidden'] {
+  opacity: 0;
+}
+[data-tippy-root] {
+  max-width: calc(100vw - 0.625em);
+}
+.tippy-box {
+  position: relative;
+  background-color: #333;
+  color: var(--main-text-color);
+  border-radius: 0.350em;
+  font-size: var(--step--3);
+  line-height: 1.4;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+  /* max-width: 21.875em!important; */
+  max-width: 21.875em;
+}
+.tippy-box[data-placement^='top'] > .tippy-arrow {
+  bottom: 0;
+}
+.tippy-box[data-placement^='top'] > .tippy-arrow:before {
+  bottom: -0.438em;
+  left: 0;
+  border-width: 0.500em 0.500em 0;
+  border-top-color: initial;
+  transform-origin: center top;
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow {
+  top: 0;
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+  top: -0.438em;
+  left: 0;
+  border-width: 0 0.500em 0.500em;
+  border-bottom-color: initial;
+  transform-origin: center bottom;
+}
+.tippy-box[data-placement^='left'] > .tippy-arrow {
+  right: 0;
+}
+.tippy-box[data-placement^='left'] > .tippy-arrow:before {
+  border-width: 0.500em 0 0.500em 0.500em;
+  border-left-color: initial;
+  right: -0.438em;
+  transform-origin: center left;
+}
+.tippy-box[data-placement^='right'] > .tippy-arrow {
+  left: 0;
+}
+.tippy-box[data-placement^='right'] > .tippy-arrow:before {
+  left: -0.438em;
+  border-width: 0.500em 0.500em 0.500em 0;
+  border-right-color: initial;
+  transform-origin: center right;
+}
+.tippy-box[data-inertia][data-state='visible'] {
+  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+.tippy-arrow {
+  width: 1em;
+  height: 1em;
+  color: var(--main-muted-text-color);
+}
+.tippy-arrow:before {
+  content: '';
+  position: absolute;
+  border-color: transparent;
+  border-style: solid;
+}
+.tippy-content {
+  position: relative;
+  padding: 0.313em;
+  z-index: 1;
+}

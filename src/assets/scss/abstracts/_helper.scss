@@ -1,0 +1,203 @@
+@use "./index" as helper;
+@use "sass:math";
+
+@font-face {
+  font-family: YekanBakh;
+  src: url("../Fonts/Fa/Yekan\ Bakh\ Fa\ 05\ Medium.eot") format("eot"),
+    url("../Fonts/Fa/Yekan\ Bakh\ Fa\ 05\ Medium.woff") format("wof"),
+    url("../Fonts/Fa/Yekan\ Bakh\ Fa\ 05\ Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: YekanNumber;
+  src: url("../Fonts/FaNum/Yekan\ Bakh\ FaNum\ 06\ Bold.eot") format("eot"),
+    url("../Fonts/FaNum/Yekan\ Bakh\ FaNum\ 06\ Bold.woff") format("wof"),
+    url("../Fonts/FaNum/Yekan\ Bakh\ FaNum\ 06\ Bold.ttf") format("truetype");
+}
+
+
+
+@mixin input-light {
+  --input-filled-bg-light: hsl(0, 0%, 97%);
+  --input-filled-placeholder-light: hsl(0, 0%, 58%);
+
+  --input-focused-shadow-light: 0px 9px 44px 0px hsla(0, 0%, 0%, 0.12);
+}
+
+@mixin button-light {
+  --button-bg-hover-light: hsl(0, 0%, 95%);
+  --button-filled-bg-light: hsl(0, 0%, 91%);
+  --button-filled-bg-hover-light: hsla(0, 0%, 65%, 0.35);
+
+  --button-contained-bg-light: var(--brand-light);
+  --button-contained-bg-hover-light: var(--brand-light-darken);
+  --button-contained-text-light: hsl(0, 0%, 100%);
+}
+@mixin input-dark {
+  --input-filled-bg-dark: hsl(0, 0%, 97%);
+  --input-filled-placeholder-dark: hsl(0, 0%, 58%);
+
+  --input-focused-shadow-dark: 0px 9px 44px 0px hsla(0, 0%, 0%, 0.12);
+}
+
+@mixin button-dark {
+  --button-bg-hover-dark: hsla(0, 0%, 16%, 0.64);
+  --button-filled-bg-dark: hsl(240, 16%, 12%);
+  --button-filled-bg-hover-dark: hsla(0, 0%, 65%, 0.35);
+
+  --button-contained-bg-dark: var(--brand-dark);
+  --button-contained-bg-hover-dark: var(--brand-dark-darken);
+  --button-contained-text-dark: hsl(0, 0%, 100%);
+}
+@mixin switch-dark {
+  // --switch-bg: hsl(0, 0%, 100%);
+  // --switch-bg-active: hsl(0, 0%, 100%);
+  // --switch-thumb: hsl(0, 0%, 100%);
+  // --switch-thumb-active: hsl(0, 0%, 100%);
+}
+// main color #59c0c4
+
+@mixin light() {
+  color-scheme: light;
+  --brand: var(--brand-light);
+  --secondary: var(--secondary-light);
+  --body-bg: var(--body-bg-light);
+  --card-bg-1: var(--card-bg-1-light);
+  --card-bg-2: var(--card-bg-2-light);
+  --card-bg-3: var(--card-bg-3-light);
+  --shadow-1: var(--shadow-1-light);
+  --shadow-2: var(--shadow-2-light);
+  --border-1: var(--border-1-light);
+  --border-2: var(--border-2-light);
+  --text-1: var(--text-1-light);
+  --text-2: var(--text-2-light);
+  --text-3: var(--text-3-light);
+  --input-filled-bg: var(--input-filled-bg-light);
+  --input-filled-placeholder: var(--input-filled-placeholder-light);
+  --input-focused-shadow: var(--input-focused-shadow-light);
+  --button-bg-hover: var(--button-bg-hover-light);
+  --button-contained-bg: var(--button-contained-bg-light);
+  --button-filled-bg: var(--button-filled-bg-light);
+  --button-filled-bg-hover: var(--button-filled-bg-hover-light);
+  --button-contained-bg-hover: var(--button-contained-bg-hover-light);
+  --button-contained-text: var(--button-contained-text-light);
+}
+
+@mixin dark() {
+  color-scheme: dark;
+  --brand: var(--brand-dark);
+  --brand-darken: var(--brand-dark-darken);
+  --secondary: var(--secondary-dark);
+  --body-bg: var(--body-bg-dark);
+  --card-bg-1: var(--card-bg-1-dark);
+  --card-bg-2: var(--card-bg-2-dark);
+  --card-bg-3: var(--card-bg-3-dark);
+  --shadow-1: var(--shadow-1-dark);
+  --shadow-2: var(--shadow-2-dark);
+  --border-1: var(--border-1-dark);
+  --border-2: var(--border-2-dark);
+  --text-1: var(--text-1-dark);
+  --text-2: var(--text-2-dark);
+  --text-3: var(--text-3-dark);
+  --input-filled-bg: var(--input-filled-bg-dark);
+  --input-filled-placeholder: var(--input-filled-placeholder-dark);
+  --input-focused-shadow: var(--input-focused-shadow-dark);
+  --button-bg-hover: var(--button-bg-hover-dark);
+  --button-contained-bg: var(--button-contained-bg-dark);
+  --button-filled-bg: var(--button-filled-bg-dark);
+  --button-filled-bg-hover: var(--button-filled-bg-hover-dark);
+  --button-contained-bg-hover: var(--button-contained-bg-hover-dark);
+  --button-contained-text: var(--button-contained-text-dark);
+}
+
+// Colors
+:root {
+  --font-family: YekanNumber;
+  
+  --fs-xxl: clamp(2rem, -1.6923rem + 10.2564vw, 6rem);
+  --fs-xl: clamp(1.55rem, -0.7115rem + 6.2821vw, 4rem);
+  // --fs-lg: clamp(1.25rem, 0.5577rem + 1.5231vw, 2rem);
+  --fs-lg: 2.1rem;
+  --fs-md: clamp(1rem, 0.7154rem + 0.8128vw, 1.24rem);
+  --fs-sm: clamp(0.94rem, 0.5231rem + 0.6692vw, 1.1rem);
+  --fs-xs: clamp(0.88rem, 0.4192rem + 0.641vw, 0.9rem);
+  --fs-xxs: clamp(0.8rem, 0.3192rem + 0.541vw, 0.8rem);
+  --el-border-radius: 0.6em;
+
+  
+  --ease-time: 0.35s;
+  --layer-important: 2147483647;
+  --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
+  --ease-squish-2: cubic-bezier(0.5, -0.3, 0.1, 1.5);
+  --ease-squish-3: cubic-bezier(0.5, -0.5, 0.1, 1.5);
+  --ease-elastic-3: cubic-bezier(0.5, 1.25, 0.75, 1.25);
+  --ease-elastic-4: cubic-bezier(0.5, 1.5, 0.75, 1.25);
+
+  --ease-out-5: cubic-bezier(0, 0, 0, 1);
+
+
+  // brand hsl
+  --brand-hue: 234;
+  --brand-saturation: 100%;
+  --brand-lightness: 17%;
+  --brand-hsl: 234 100% 17%;
+  --success: #03C988;
+  --error: #ED2B2A;
+
+  // light
+  --brand-light: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) * 3));
+  --brand-light-darken: hsl(var(--brand-hue) var(--brand-saturation) calc(var(--brand-lightness) / 2));
+  --secondary-light: hsla(38, 100%, 42%, 1);
+  --body-bg-light: hsl(240, 25%, 100%);
+  --card-bg-1-light: hsl(0, 0%, 100%);
+  --card-bg-2-light: hsla(0, 0%, 44%, 0.04);
+  --card-bg-3-light: hsl(240, 18%, 97%);
+  --shadow-1-light: 0px 4px 24px 0px hsla(0, 0%, 0%, 0.05);
+  --shadow-2-light: 0px 4px 36px 0px hsla(0, 0%, 0%, 0.12);
+  --border-1-light: hsl(0, 0%, 96%);
+  --border-2-light: hsl(0, 0%, 93%);
+  --text-1-light: hsl(0, 0%, 0%);
+  --text-2-light: hsla(0, 0%, 61%, 1);
+  --text-3-light: hsla(0, 0%, 27%, 1);
+  @include input-light;
+  @include button-light;
+
+  // dark
+  --brand-dark: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) 50%);
+  --brand-dark-darken: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) 54%);
+  --secondary-dark: hsla(38, 100%, 42%, 1);
+  --body-bg-dark: hsl(240, 25%, 0%);
+  --card-bg-1-dark: hsl(0, 0%, 14%);
+  --card-bg-2-dark: hsla(0, 0%, 44%, 0.04);
+  --card-bg-3-dark: hsl(240, 18%, 18%);
+  --shadow-1-dark: 0px 4px 24px 0px hsla(0, 0%, 0%, 0.05);
+  --shadow-2-dark: 0px 4px 36px 0px hsla(0, 0%, 0%, 0.12);
+  --border-1-dark: hsl(0, 0%, 16%);
+  --border-2-dark: hsl(0, 0%, 32%);
+  --text-1-dark: hsl(0, 0%, 100%);
+  --text-2-dark: hsla(0, 0%, 40%, 1);
+  --text-3-dark: hsla(0, 0%, 27%, 1);
+  @include input-dark;
+  @include button-dark;
+  @include switch-dark;
+
+  @include light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark;
+  }
+}
+
+[data-theme="light"] {
+  @include light;
+}
+
+[data-theme="dark"] {
+  @include dark;
+}
+
+[dir="ltr"]{
+  --font-family: 'system-ui';
+}
