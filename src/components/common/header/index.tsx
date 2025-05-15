@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Button } from '../../KIT';
 import { motion, useAnimationControls, useCycle } from "framer-motion";
 import { useDimensions } from '~/hooks/useDimensions';
@@ -20,6 +20,7 @@ const Header = () => {
     // const navigate = useNavigate()
     const menuAnimControls = useAnimationControls();
     const errorsAnimControls = useAnimationControls()
+    const [activePanel, setActivePanel] = useState<'menu' | 'errors'>('menu');
 
     // const [animationComplete, toggleAnimationComplete] = useToggle(false);
     const [menuVisible, toggleMenu] = useCycle(false, true);
@@ -65,8 +66,10 @@ const Header = () => {
                     <MenuToggle menuVisible={menuVisible} toggle={() => {
                         toggleMenu()
                         errorsAnimControls.set('hidden')
-                        if (!menuVisible)
+                        if (!menuVisible) {
                             menuAnimControls.start("show")
+                            setActivePanel('menu')
+                        }
                     }} />
                 </div>
 
@@ -90,7 +93,12 @@ const Header = () => {
                 }}
             >
                 <motion.div className="menu-bg" variants={MENU_VARIANTS}>
-                    <MenuContent menuAnimControls={menuAnimControls} errorsAnimControls={errorsAnimControls} />
+                    <MenuContent
+                        menuAnimControls={menuAnimControls}
+                        errorsAnimControls={errorsAnimControls}
+                        activePanel={activePanel}
+                        setActivePanel={setActivePanel}
+                    />
                 </motion.div>
             </motion.nav>
         </>

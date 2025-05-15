@@ -9,7 +9,7 @@ import {
     // SVGRenderer,
 } from 'echarts/renderers';
 import { useGeneralStore } from '~/store/general';
-import { THEME, axisLineLineStyleColors, axisLineLineStyleColors2, progressColors, titleColors, valueColors } from '~/store/constants';
+import { THEME, axisLineLineStyleColors, axisLineLineStyleColors2, progressColors, titleColors, valueColors, brighterProgressColors } from '~/store/constants';
 
 // const axisLineColors: { [key: string]: string } = { dark: '#404040', light: '#aaaaaa' };
 // const titleColors: { [key: string]: string } = { dark: '#929292', light: '#424242' };
@@ -54,6 +54,7 @@ const NewAmper = ({ value,value2, title = "", valueSize, secondTitleSize, thirdT
     const axisLineLineStyleColor = axisLineLineStyleColors[theme]
     const axisLineLineStyleColor2 = axisLineLineStyleColors2[theme]
     const progressColor = progressColors[theme]
+    const _brighterProgressColor = brighterProgressColors[theme] // Get the brighter color based on theme
     const axisLabelColor = '#696969'
     useEffect(() => {
         // Simulate changing the value and color over time
@@ -114,14 +115,13 @@ const NewAmper = ({ value,value2, title = "", valueSize, secondTitleSize, thirdT
                     show: true,
                     roundCap: true,
                     // color: '#59c0c4',
-                    width: progressWidth,
+                    width: Math.max(axisLineWidth - 2, 2),
                     itemStyle: {
                         color: color,
-                        // borderWidth: 9,
-                        // borderColor: '#000',
+                        borderWidth: 0,
+                        shadowBlur: 0,
+                        shadowColor: 'transparent',
                         // borderCap: 'round'
-                        // shadowColor: '#59c0c4',
-                        // shadowBlur: 10,
                     }
                 },
                 pointer: {
@@ -131,18 +131,7 @@ const NewAmper = ({ value,value2, title = "", valueSize, secondTitleSize, thirdT
                     lineStyle: {
                         width: axisLineWidth,
                         color: [[1, axisLineLineStyleColor]],
-
-                        // color: [[0.2, '#4cbdc2'], [0.8, 'red'], [1, 'yellow']],
-                        // color: [[0.3, '#67e0e3'],
-                        // [0.7, '#37a2da'],
-                        // [1, '#fd666d']]
-
                     },
-                    // itemStyle: {
-                    //     borderWidth: 8,
-                    //     borderColor: 'red',
-                    // },
-                    // color: '#727272',
                     roundCap: true,
                     show: true
                 },
@@ -242,7 +231,7 @@ const NewAmper = ({ value,value2, title = "", valueSize, secondTitleSize, thirdT
                     width: progressWidth,
                     itemStyle: {
                         color: progressColor,
-                        // borderWidth: 9,
+                        borderWidth: 0,
                         // borderColor: '#000',
                         // borderCap: 'round'
                         // shadowColor: '#59c0c4',
@@ -314,7 +303,7 @@ const NewAmper = ({ value,value2, title = "", valueSize, secondTitleSize, thirdT
                 },
                 detail: {
                     // valueAnimation: false,
-                    width: '60%',
+                    width: '70%',
                     // lineHeight: 10,
                     borderRadius: 8,
                     // offsetCenter: [0, '-15%'],
@@ -382,7 +371,7 @@ const NewAmper = ({ value,value2, title = "", valueSize, secondTitleSize, thirdT
                     itemStyle: {
                         color: axisLineLineStyleColor2,
                         borderWidth: 1,
-                        borderColor: progressColor,
+                        borderColor: 'transparent',
                         // borderMiterLimit: 44
                         // borderCap: 'round'
                         // borderCap: 'round'
@@ -574,7 +563,7 @@ const NewAmper = ({ value,value2, title = "", valueSize, secondTitleSize, thirdT
                     itemStyle: {
                         color: axisLineLineStyleColor2,
                         borderWidth: 1,
-                        borderColor: progressColor,
+                        borderColor: _brighterProgressColor,
                         // borderMiterLimit: 44
                         // borderCap: 'round'
                         // borderCap: 'round'

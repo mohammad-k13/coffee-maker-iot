@@ -267,7 +267,7 @@ const PresureAmper = ({ value, title = "", valueSize, secondTitleSize, thirdTitl
                     itemStyle: {
                         color: axisLineLineStyleColor2,
                         borderWidth: 1,
-                        borderColor: progressColor,
+                        borderColor: 'transparent',
                         // borderMiterLimit: 44
                         // borderCap: 'round'
                         // borderCap: 'round'

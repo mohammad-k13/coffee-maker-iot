@@ -9,7 +9,7 @@ import {
     // SVGRenderer,
 } from 'echarts/renderers';
 import { useGeneralStore } from '~/store/general';
-import { THEME, axisLineLineStyleColors, axisLineLineStyleColors2, progressColors, titleColors, valueColors } from '~/store/constants';
+import { THEME, axisLineLineStyleColors, axisLineLineStyleColors2, progressColors, titleColors, valueColors, brighterProgressColors } from '~/store/constants';
 
 // // const axisLineColors: { [key: string]: string } = { dark: '#404040', light: '#aaaaaa' };
 // const valueColors: { [key: string]: string } = { dark: '#fff', light: '#000' };
@@ -58,6 +58,7 @@ const NewMainAmper = ({ value, title = "", valueSize, titleSize, axisLineWidth, 
     const axisLineLineStyleColor = axisLineLineStyleColors[theme]
     const axisLineLineStyleColor2 = axisLineLineStyleColors2[theme]
     const progressColor = progressColors[theme]
+    const _brighterProgressColor = brighterProgressColors[theme] // Get the brighter color based on theme
     // const axisLabelColor = '#696969'
 
 
@@ -123,11 +124,10 @@ const NewMainAmper = ({ value, title = "", valueSize, titleSize, axisLineWidth, 
                     width: progressWidth,
                     itemStyle: {
                         color: color,
-                        // borderWidth: 9,
-                        // borderColor: '#000',
+                        borderWidth:0,
+                        shadowBlur: 0,
+                        shadowColor: 'transparent',
                         // borderCap: 'round'
-                        // shadowColor: '#59c0c4',
-                        // shadowBlur: 10,
                     }
                 },
                 pointer: {
@@ -136,19 +136,8 @@ const NewMainAmper = ({ value, title = "", valueSize, titleSize, axisLineWidth, 
                 axisLine: {
                     lineStyle: {
                         width: axisLineWidth,
-                        color: [[1, axisLineLineStyleColor]],
-
-                        // color: [[0.2, '#4cbdc2'], [0.8, 'red'], [1, 'yellow']],
-                        // color: [[0.3, '#67e0e3'],
-                        // [0.7, '#37a2da'],
-                        // [1, '#fd666d']]
-
+                        color: [[1, axisLineLineStyleColor]], // Restore original track color
                     },
-                    // itemStyle: {
-                    //     borderWidth: 8,
-                    //     borderColor: 'red',
-                    // },
-                    // color: '#727272',
                     roundCap: true,
                     show: true
                 },
@@ -199,7 +188,7 @@ const NewMainAmper = ({ value, title = "", valueSize, titleSize, axisLineWidth, 
                     // valueAnimation: false,
                     width: '60%',
                     // lineHeight: 10,
-                    borderRadius: 8,
+                    borderRadius: 0,
                     // offsetCenter: [0, '-15%'],
                     fontSize: valueSize,
                     fontWeight: 'bolder',
@@ -256,14 +245,14 @@ const NewMainAmper = ({ value, title = "", valueSize, titleSize, axisLineWidth, 
                 progress: {
         
                     show: true,
-                    roundCap: true,
+                    roundCap: false,
                     // color: '#59c0c4',
                     
                     width: progressWidth + 10,
                     itemStyle: {
                         color: axisLineLineStyleColor2,
-                        borderWidth: 1,
-                        borderColor: progressColor,
+                        borderWidth: 1, // Ensure border is 1px
+                        borderColor: _brighterProgressColor, // Use brighter color for border
                         // borderMiterLimit: 44
                         // borderCap: 'round'
                         // borderCap: 'round'
@@ -277,7 +266,7 @@ const NewMainAmper = ({ value, title = "", valueSize, titleSize, axisLineWidth, 
                 axisLine: {
                     lineStyle: {
                         width: axisLineWidth + 10,
-                        color: [[1, progressColor]],
+                        color: [[1, progressColor]], // Main axis line color remains original progressColor
         
                         // color: [[0.2, '#4cbdc2'], [0.8, 'red'], [1, 'yellow']],
                         // color: [[0.3, '#67e0e3'],

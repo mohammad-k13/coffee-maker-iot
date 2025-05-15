@@ -160,6 +160,7 @@ export const titleColors: { [key: string]: string } = { dark: '#929292', light: 
 export const axisLineLineStyleColors: { [key: string]: string } = { dark: '#282828', light: '#eeeeee' };
 export const axisLineLineStyleColors2: { [key: string]: string } = { dark: '#000', light: '#fff' };
 export const progressColors: { [key: string]: string } = { dark: '#727272', light: '#a4a4a4' };
+export const brighterProgressColors: { [key: string]: string } = { dark: '#9a9a9a', light: '#c0c0c0' };
 
 
 export const THEME = "THEME";

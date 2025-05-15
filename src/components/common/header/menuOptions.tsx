@@ -16,13 +16,19 @@ import { LANGUAGE_KEY } from '~/store/constants';
 import { useTranslation } from 'react-i18next';
 // import { useLottie } from 'lottie-react';
 import cupWarmerAnimation from "~/assets/anims/cup-heater.json";
+import EcoModeModal from '../EcoModeModal';
+import CupWarmerModal from '../CupWarmerModal';
+import ContactUsModal from '../ContactUsModal';
+import BaristaLightModal from '../BaristaLightModal';
 
 
 interface MenuOptionsTypes {
-    menuAnimControls: AnimationControls, errorsAnimControls: AnimationControls
+    menuAnimControls: AnimationControls,
+    errorsAnimControls: AnimationControls,
+    setActivePanel: (panel: 'menu' | 'errors') => void
 };
 
-const MenuOptions = ({ menuAnimControls, errorsAnimControls }: MenuOptionsTypes) => {
+const MenuOptions = ({ menuAnimControls, errorsAnimControls, setActivePanel }: MenuOptionsTypes) => {
     const cupWarmerAnimationOptions = {
         animationData: cupWarmerAnimation,
         loop: true,
@@ -35,22 +41,21 @@ const MenuOptions = ({ menuAnimControls, errorsAnimControls }: MenuOptionsTypes)
     const [dischargeConfirmationModal, toggleDischargeConfirmationModal] = useToggle(false);
     const [languageModal, toggleLanguageModal] = useToggle(false);
     const [cupWarmerModal, toggleCupWarmerModal] = useToggle(false);
+    const [ecoModeModal, toggleEcoModeModal] = useToggle(false);
+    const [contactUsModal, toggleContactUsModal] = useToggle(false);
+    const [baristaLightModal, toggleBaristaLightModal] = useToggle(false);
 
     return (
         <>
-            <Button className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }}>
+            <Button className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }}
+                onClick={toggleEcoModeModal}>
                 <CiLeaf width="4em" height='4em' />
                 <span className='mt3 fs-md'>
                     ECO Mode
                 </span>
             </Button>
             <Button className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }}
-                onClick={() => {
-                    console.log('errors clicked', menuAnimControls, errorsAnimControls)
-                    
-                    menuAnimControls.start('errorVisible')
-                    errorsAnimControls.start('show')
-                }}>
+                onClick={() => setActivePanel('errors')}>
                 <CiWarningOutline width="4em" height='4em' />
                 <span className='mt3 fs-md'>
                     Errors
@@ -59,24 +64,21 @@ const MenuOptions = ({ menuAnimControls, errorsAnimControls }: MenuOptionsTypes)
             <Button className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }}>
                 <MaterialSymbolsNestClockFarsightAnalogOutlineRounded width="4em" height='4em' />
                 <span className='mt3 fs-md'>
-                    Time
+                    Date & Time
                 </span>
             </Button>
             <Button onClick={toggleDischargeConfirmationModal} className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }}>
                 <MaterialSymbolsDownloadRounded width="4em" height='4em' />
                 <span className='mt3 fs-md'>
-                    Discharge
+                    Boiler Discharge
                 </span>
             </Button>
             <Button
-                onClick={() => {
-
-                    store.toggleTheme();
-                }}
-                className={`w100 flex column alignCenter outlined theme-toggle menu-option-btn`} id="theme-toggle"
-                title="Toggles light & dark"
-                aria-label={'dark'}
-                aria-live="polite" style={{ padding: '2em 1em' }}>
+                className={`w100 flex column alignCenter outlined theme-toggle menu-option-btn`} 
+                id="theme-toggle"
+                style={{ padding: '2em 1em' }}
+                onClick={toggleBaristaLightModal}
+            >
                 <svg className="sun-and-moon" aria-hidden="true" width="26" height="26" viewBox="0 0 26 26">
                     <mask className="moon" id="moon-mask">
                         <rect x="0" y="0" width="100%" height="100%" fill="white" />
@@ -94,10 +96,8 @@ const MenuOptions = ({ menuAnimControls, errorsAnimControls }: MenuOptionsTypes)
                         <line x1="4.8" y1="4.8" x2="6.5" y2="6.5" />
                     </g>
                 </svg>
-
-                {/* <MaterialSymbolsWbSunnyOutline width="4em" height='4em' /> */}
                 <span className='mt3 fs-md'>
-                    Theme
+                    Barista Light
                 </span>
             </Button>
             <Button onClick={toggleCupWarmerModal} className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }}>
@@ -112,7 +112,7 @@ const MenuOptions = ({ menuAnimControls, errorsAnimControls }: MenuOptionsTypes)
                     Language
                 </span>
             </Button>
-            <Button className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }}>
+            <Button className={`w100 flex column alignCenter outlined menu-option-btn`} style={{ padding: '2em 1em' }} onClick={toggleContactUsModal}>
                 <MaterialSymbolsPhoneInTalkWatchfaceIndicatorOutline width="4em" height='4em' />
                 <span className='mt3 fs-md'>
                     Contact Us
@@ -131,16 +131,15 @@ const MenuOptions = ({ menuAnimControls, errorsAnimControls }: MenuOptionsTypes)
             <Modal modalPaperStyle={{
                 overflow: 'visible'
             }} onClose={toggleCupWarmerModal} open={cupWarmerModal}>
-                <ConfirmationModalContent
-                    animationOptions={cupWarmerAnimationOptions}
-                    animationStyle={{
-                        height: 300,
-                        marginTop: '-10em'
-                    }}
-                    title='Please confirm to warm the cup'
-                    onCancel={toggleCupWarmerModal}
-                />
+                <CupWarmerModal onCancel={toggleCupWarmerModal} onConfirm={toggleCupWarmerModal} />
             </Modal>
+            <Modal onClose={toggleEcoModeModal} open={ecoModeModal}>
+                <EcoModeModal onCancel={toggleEcoModeModal} onConfirm={toggleEcoModeModal} />
+            </Modal>
+            <Modal onClose={toggleContactUsModal} open={contactUsModal}>
+                <ContactUsModal onCancel={toggleContactUsModal} onConfirm={toggleContactUsModal} />
+            </Modal>
+            <BaristaLightModal open={baristaLightModal} onClose={toggleBaristaLightModal} />
         </>
     )
 };

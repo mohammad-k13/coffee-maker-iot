@@ -5,6 +5,8 @@ import { LANGUAGE_KEY, THEME, MACHINE_KEY, CURRENT_PAGE } from "./consts";
 
 interface General {
   toggleTheme: () => void;
+  initialSplashDone?: boolean;
+  setInitialSplashDone?: () => void;
 }
 type GHType = {
   name: string;
@@ -35,6 +37,7 @@ const initialStore = {
     url: "/dashboard/home",
     params: {},
   },
+  initialSplashDone: false,
   [MACHINE_KEY]: {
     GH1: {
       id: 1,
@@ -112,7 +115,7 @@ export const general: StateCreator<General, []> = (
     set({ [CURRENT_PAGE]: val });
   },
 
-  
+  setInitialSplashDone: () => set({ initialSplashDone: true }),
 
   ...initialStore,
 });
@@ -126,10 +129,7 @@ const persistedValues = (state: {
     url: string;
     params: any;
   }) => void;
-  onChangeCurrentPage: (_val: {
-    url: string;
-    params: any;
-  }) => void;
+  setInitialSplashDone: () => void;
   [THEME]: any;
   [LANGUAGE_KEY]: any;
   [MACHINE_KEY]: {
